@@ -1,0 +1,209 @@
+@font-face {
+    font-family: atkinson;
+    src: url(./fonts/atkinson_regular.woff2);
+}
+
+@font-face {
+    font-family: atkinson;
+    src: url(./fonts/atkinson-bold.woff2);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: Helvetica;
+    src: url(./fonts/HelveticaWorld-Regular.ttf);
+}
+
+@font-face {
+    font-family: Helvetica;
+    src: url(./fonts/HelveticaWorld-Bold.ttf);
+    font-weight: bold;
+}
+
+*{
+    box-sizing: border-box!important;
+    margin:0;
+    padding: 0;
+    font-family: atkinson;
+}
+
+a{
+    text-decoration: none;
+    color:black;
+}
+
+h1,h2{
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+}
+h1{
+    font-size: 6rem;
+}
+
+
+button {
+    border: none;
+    padding:20px;
+    user-select: none;
+}
+
+
+nav {
+    padding:2em;
+    right:0;
+    position: fixed;
+
+}
+
+nav a {
+    padding:0.5em;
+}
+
+
+.home, .buildpc {
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.home > div {
+    flex-basis:50%;
+}
+
+.homeImg {
+    margin: 5%;
+    width: 80%;
+}
+
+.home-right h1 {
+    font-size:9em;
+}
+
+.btns{
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.main-btn div{
+    padding:1em;
+    margin: 1em 1em 0 0;
+    font-size:1.25em;
+    width:10em;
+    text-align: center;
+    border-radius: 0.3em;
+    background:#3f3d56;
+    color:white;
+    cursor: pointer;
+}
+.container {
+    padding: 10%;
+}
+
+
+.components{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+.components > a {
+    border:2px solid grey;
+    border-radius: 0.5em;
+    width:20em;
+    height: 20em;
+    text-align: center;
+    padding:2em;
+    margin:10px;
+}
+.component-list {
+    font-size:1em;
+    display: flex;
+    flex-direction: column;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    background:#3f3d56;
+    font-size: 1.2em;
+    color:white;
+}
+td {
+    border-bottom: 1px #dadada solid;
+}
+
+tr:hover {
+    background-color:#dbdada;
+    cursor:pointer;
+}
+
+td, th {
+  text-align: left;
+  padding: 1.2em;
+}
+hr {
+    margin:1% 0;
+}
+
+.software-usecase {
+    margin: 5% 0;
+}
+.software-selection{
+    display: flex;
+}
+
+.software-item {
+    width:15rem;
+    height:10rem;
+    padding:2em;
+    text-align: center;
+    background:#ececec;
+    border-radius: 10px;
+    margin-right:5%;
+    transition: all 0.2s;
+}
+
+.software-item:hover {
+    background:#dadada;
+    transition: transform 0.2s, background 0.5s;
+}
+
+.selected {
+    transform: scale(0.8);
+}
+
+footer {
+    left:0;
+    bottom:0%;
+    position: fixed;
+    padding: 1% 0;
+    width:100%;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.budget {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.budget > div {
+    text-align: center;
+    flex-basis:33.33%;
+}
+
+.suggestion{
+    padding:1em;
+    margin:1em;
+    border:2px solid grey;
+    height:60%;
+    width:20%;
+    border-radius: 10px;
+}
