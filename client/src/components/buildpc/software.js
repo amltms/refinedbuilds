@@ -2,19 +2,22 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import {SoftwareUseCase} from './SoftwareUseCase';
 import {Footer} from './Footer';
+import {Toast} from '../utility/Toast';
+
 
 export const Software = () => {
     const [softwares, setSoftwares] = useState([]);
     const [useCases, setUseCases] = useState([]);
     const [selected, setSelected] = useState([]);
     const [counter, setCounter] = useState(0);
-    
+    const [toast, setToast] = useState(false);
+
     function handleClick(id) {
         if (selected.includes(id)){
             setSelected(selected.filter(x => x !== id));
             setCounter(counter-1);
         }else if (counter == 3){
-            alert('2')
+            setToast(true);
         }else {
             setSelected( arr => [...arr, id]);
             setCounter(counter+1);
@@ -44,6 +47,9 @@ export const Software = () => {
 
     return (
         <>
+            {toast && (
+                <Toast msg={'Selected too many software'} setToast={setToast}/>
+            )}
             <h1>Select Software ({counter}/3)</h1>
             <p>Help us understand your use case by selecting your most commonly used software.</p>
             <div>

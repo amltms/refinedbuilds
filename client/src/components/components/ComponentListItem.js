@@ -7,8 +7,7 @@ export const Component = ({component, attributes}) => {
     return (
         <tr onClick={() => handleClick(component._id)}>
             <td>{component.name}</td>
-            {attributes.map(attribute => (<td>{String(component[attribute.id])}{attribute.unit}</td>))}
-            <td>{component.rating}</td>
+            {attributes.map(attribute => (<td>{String(component[attribute.id])} {attribute.unit}</td>))}
             <td>£{component.price}</td>
         </tr>
     )

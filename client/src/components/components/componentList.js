@@ -25,7 +25,6 @@ export const ComponentList = (props) =>{
                 <tr>
                     <th>Name</th>
                     {attributes.attributes.map(attribute => (<th>{attribute.title}</th>))}
-                    <th>Rating</th>
                     <th>Price</th>
                 </tr>
                 {components.map(component => (<Component key={component._id}  attributes={attributes.attributes} component={component}/>))}
