@@ -1,4 +1,3 @@
-import React from 'react';
 import { ReactComponent as MainImg } from '../main.svg';
 import { Link } from "react-router-dom";
 

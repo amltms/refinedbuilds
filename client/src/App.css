@@ -21,41 +21,56 @@
 }
 
 *{
-    box-sizing: border-box!important;
+    box-sizing: border-box;
     margin:0;
     padding: 0;
     font-family: atkinson;
 }
+body {
+    background-color: #f5f5f5;
+}
+
 
 a{
     text-decoration: none;
     color:black;
 }
 
-h1,h2{
+h1{
     font-family: Helvetica, Arial, sans-serif;
     font-weight: bold;
-}
-h1{
     font-size: 6rem;
 }
 
-@keyframes toast-animation {
-    from {
-        transform: translateY(200%);
-    }to {
-        transform: translateY(0);
-    }
+h2{
+    font-family: atkinson;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+p {
+    font-size: 1.3rem;
+}
+
+hr.grey {
+    margin-bottom:2rem;
+    border: 0;
+    height: 1px;
+    background: #e2e2e2;
+}
+
+button {
+    border: none;
+    user-select: none;
+    background: none;
 }
 
 .toast {
     position:fixed;
     left:0;
     right:0;
-    bottom:5%;
+    bottom:-15%;
     margin:0 auto;
-
-    
     display: flex;
     flex-wrap: wrap;
     z-index:10;
@@ -63,12 +78,19 @@ h1{
     width: 30%;
     background-color: #e1954b;
     color:white;
-    
-    animation: toast-animation 0.4s;
-    
     padding: 1rem;
     border-radius: 0.4rem;
     font-size: 1.2rem;
+    transition: transform 0.3s;
+
+}
+
+.toast-up {
+    transform: translateY(-200%);
+}
+
+.toast-down {
+    transform: translateY(0%);
 }
 
 .toast > div {
@@ -81,21 +103,12 @@ h1{
     right:0;
     color:white;
     font-size: 1rem;
-    background: none;
     padding: 1rem;
-    border:none;
 }
 
-.icon {
+.toast .icon {
     font-size: 3rem;
 }
-
-button {
-    border: none;
-    padding:20px;
-    user-select: none;
-}
-
 
 
 nav {
@@ -110,7 +123,7 @@ nav a {
 }
 
 
-.home, .buildpc {
+.home {
     height: 100vh;
     display: flex;
     flex-wrap: wrap;
@@ -137,7 +150,7 @@ nav a {
     flex-wrap: wrap;
 }
 
-.main-btn div{
+.main-btn{
     padding:1em;
     margin: 1em 1em 0 0;
     font-size:1.25em;
@@ -249,11 +262,43 @@ footer {
     flex-basis:33.33%;
 }
 
-.suggestion{
-    padding:1em;
-    margin:1em;
-    border:2px solid grey;
-    height:60%;
-    width:20%;
-    border-radius: 10px;
+.budget-price {
+    padding: 2rem 0;
+    display: inline-block;
 }
+.buildpc {
+    height:100vh;
+    padding: 10%;
+    display: flex;
+    flex-direction: column;
+    background-color: #f5f5f5;
+}
+
+.suggestions-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+}
+.suggestion{
+    flex-grow:1;
+    padding:2rem;
+    margin:1em;
+    background:white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: 0.5s;
+
+}
+
+.suggestion:hover{
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+}
+
+.suggestion > img, .suggestion > p.price {
+    margin:0 auto;
+}
+
+.suggestions-container > :nth-child(1) { order: 2; }
+.suggestions-container > :nth-child(2) { order: 1; }
+.suggestions-container > :nth-child(3) { order: 3; }
