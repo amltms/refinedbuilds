@@ -68,7 +68,13 @@ export const Software = () => {
             <h1>Select Software ({counter}/3)</h1>
             <p>Help us understand your use case by selecting your most commonly used software.</p>
             <div>
-                {useCases.map(useCase => (<SoftwareUseCase onClick={handleClick} selected={selected} title={useCase.title} useCase={useCase.type} softwares={softwares}/>))}
+                {useCases.map(useCase => (
+                    <SoftwareUseCase 
+                        onClick={handleClick} 
+                        selected={selected} 
+                        useCase={useCase} 
+                        softwares={softwares}/>
+                ))}
             </div>
 
             <Footer next={next} prev={() => history.goBack()}/>

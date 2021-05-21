@@ -23,11 +23,18 @@ export const Suggestions = (props) => {
     }
 
     function next() {
-        setCount(count + 1);
+        if (count === Object.keys(components).length - 1){
+            history.push({
+                pathname: '/overview',
+                state: selected
+            })
+        }else {
+            setCount(count + 1);
+        }
     }
 
     function prev(){
-        if (count == 0){
+        if (count === 0){
             history.goBack();
         }else {
             setCount(count - 1);
@@ -50,10 +57,19 @@ export const Suggestions = (props) => {
         <div className='buildpc'>
             <h1>{attributes.length > 0 ? attributes[count].title : 'Loading...'}</h1>
             <div className="suggestions-container">
-            {attributes.length > 0 && components[attributes[count].type].map(c => (
-                <SuggestionItem attributes={attributes[count].attributes} onClick={basket} component={c}/>
-            ))}
+    
+            {components && attributes.length > 0 ? components[attributes[count].type].map((c, index) => (
+    
+                <SuggestionItem 
+                    selected={selected} 
+                    attributes={attributes[count].attributes}
+                    onClick={basket} 
+                    component={c}
+                    index={index}
+                    />
+            )): <h2>Loading...</h2>}
             </div>
+
             <Footer next={next} prev={prev}/>
         </div>
     )
