@@ -23,6 +23,7 @@ export const ComponentList = (props) =>{
             <h1>{attributes.title}</h1>
             <table>
                 <tr>
+                    <th>Img</th>
                     <th>Name</th>
                     {attributes.attributes.map(attribute => (<th>{attribute.title}</th>))}
                     <th>Price</th>

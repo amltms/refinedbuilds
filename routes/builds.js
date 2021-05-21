@@ -12,7 +12,9 @@ router
 
 router
     .route('/tiers')
-    .put(getTiers);
+    .post(getTiers);
 
-    
+router
+    .route('/tier/:type/:id')
+    .get(getTier)   
 module.exports = router;

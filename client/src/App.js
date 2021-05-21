@@ -2,15 +2,19 @@ import './App.css';
 import {BrowserRouter as Router, Route, Switch, BrowserRouter } from 'react-router-dom';
 
 
-import { Nav } from './components/Nav';
-import {Home} from './components/home';
-import {Components} from './components/components/componentsHome';
-import { suggestions } from './components/buildpc/suggestions';
-import {Software} from './components/buildpc/software';
-import { ComponentList } from './components/components/componentList';
 import { GlobalProvider} from './context/GlobalState';
-import { Budget} from './components/buildpc/budget';
+import { Nav } from './components/utility/Nav';
+import {Home} from './components/home';
+
+import {Components} from './components/components/componentsHome';
+import { ComponentList } from './components/components/componentList';
 import {ComponentOverview} from './components/components/componentOverview';
+
+import {Software} from './components/buildpc/software';
+import { Budget} from './components/buildpc/budget';
+import { Suggestions } from './components/buildpc/suggestions/suggestions';
+import {BuildOverview} from './components/buildpc/suggestions/buildOverview';
+
 function App() {
     return (
         <GlobalProvider>
@@ -18,10 +22,11 @@ function App() {
                 <Nav/> 
                 <Switch>
                     <Route exact path="/" component={Home}/>
-                    <Route exact path="/suggestions" component={suggestions}/>
+                    <Route exact path="/suggestions" component={Suggestions}/>
                     <div className="container">
                         <Route exact path="/buildpc" component={Software}/>
                         <Route exact path="/budget" component={Budget}/>
+                        <Route exact path="/overview" component={BuildOverview}/>
                         <Route exact path="/components" component={Components}/>
                         <Route exact path="/components/:type" component={ComponentList}/>
                         <Route exact path="/components/:type/:id" component={ComponentOverview}/>

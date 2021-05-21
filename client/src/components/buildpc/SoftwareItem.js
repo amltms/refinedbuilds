@@ -8,7 +8,9 @@ export const SoftwareItem = ({selected, software, onClick}) => {
     }
     return (
         <div className={classActve(software)} onClick={() => onClick(software)}>
-            {software.title}
+
+            <img height="100" width="100" src={`/images/software/${software.useCase}/${software.img}`} />
+            <p>{software.title}</p>
         </div>
     )
 }

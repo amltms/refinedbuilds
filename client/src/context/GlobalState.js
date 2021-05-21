@@ -4,7 +4,7 @@ import axios from 'axios';
 
 // Initial state
 const initialState = {
-  components: [],
+  attributes: [],
   error: null,
   loading: true
 }
@@ -17,13 +17,13 @@ export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
 
   // Actions
-  async function getComponents(type) {
+  async function getAttributes() {
     try {
-      const res = await axios.get(`/${type}`);
+      const res = await axios.get(`/components/attributes`);
 
       dispatch({
-        type: 'GET_COMPONENTS',
-        payload: res.data.components
+        type: 'GET_ATTRIBUTES',
+        payload: res.data.attributes
       });
     } catch (err) {
       dispatch({
@@ -75,7 +75,7 @@ export const GlobalProvider = ({ children }) => {
     components: state.components,
     error: state.error,
     loading: state.loading,
-    getComponents,
+    getAttributes,
     deleteTransaction,
     addTransaction
   }}>
