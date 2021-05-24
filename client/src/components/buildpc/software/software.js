@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import {SoftwareUseCase} from './SoftwareUseCase';
-import {Footer} from '../utility/Footer';
-import {Toast} from '../utility/Toast';
+import {Footer} from '../../utility/Footer';
+import {Toast} from '../../utility/Toast';
 import { useHistory } from 'react-router-dom';
 
 export const Software = () => {

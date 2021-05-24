@@ -10,8 +10,28 @@ export const Suggestions = (props) => {
     const [attributes, setAttributes] = useState([]);
     const [selected, setSelected] = useState([]);
     const history = useHistory();
+    let test = selected.find(s => s.type === 'cpu');
+    let comp;
     console.log(components);
 
+    function getSuggestionItems() {
+        if ((components) && (attributes.length > 0)){
+            let currentType = components[attributes[count].type];
+            if ((test) &&(attributes[count].type === 'motherboard')){
+                currentType = currentType.filter(c => c.socket === test.socket)
+            }
+
+            return currentType.slice(0, 3).map((c, index) => (
+                <SuggestionItem 
+                    selected={selected} 
+                    attributes={attributes[count].attributes}
+                    onClick={basket} 
+                    component={c}
+                    index={index}
+                /> 
+            ))
+        }
+    }
 
     function basket(comp) {
         if (selected.some(e => e.type === comp.type)) {
@@ -57,19 +77,8 @@ export const Suggestions = (props) => {
         <div className='buildpc'>
             <h1>{attributes.length > 0 ? attributes[count].title : 'Loading...'}</h1>
             <div className="suggestions-container">
-    
-            {components && attributes.length > 0 ? components[attributes[count].type].map((c, index) => (
-    
-                <SuggestionItem 
-                    selected={selected} 
-                    attributes={attributes[count].attributes}
-                    onClick={basket} 
-                    component={c}
-                    index={index}
-                    />
-            )): <h2>Loading...</h2>}
+            {getSuggestionItems()}
             </div>
-
             <Footer next={next} prev={prev}/>
         </div>
     )

@@ -1,6 +1,6 @@
 export const SoftwareItem = ({selected, software, onClick}) => {
     function classActve(software) {
-        if (selected.includes(software)){
+        if (selected && selected.includes(software)){
             return 'software-item selected'
         }else{
             return 'software-item'

@@ -10,8 +10,8 @@ import {Components} from './components/components/componentsHome';
 import { ComponentList } from './components/components/componentList';
 import {ComponentOverview} from './components/components/componentOverview';
 
-import {Software} from './components/buildpc/software';
-import { Budget} from './components/buildpc/budget';
+import {Software} from './components/buildpc/software/software';
+import { Budget} from './components/buildpc/budget/budget';
 import { Suggestions } from './components/buildpc/suggestions/suggestions';
 import {BuildOverview} from './components/buildpc/suggestions/buildOverview';
 
@@ -23,9 +23,9 @@ function App() {
                 <Switch>
                     <Route exact path="/" component={Home}/>
                     <Route exact path="/suggestions" component={Suggestions}/>
+                        <Route exact path="/budget" component={Budget}/>
                     <div className="container">
                         <Route exact path="/buildpc" component={Software}/>
-                        <Route exact path="/budget" component={Budget}/>
                         <Route exact path="/overview" component={BuildOverview}/>
                         <Route exact path="/components" component={Components}/>
                         <Route exact path="/components/:type" component={ComponentList}/>

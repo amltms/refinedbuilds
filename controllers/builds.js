@@ -61,3 +61,49 @@ exports.getTiers = async (req, res, next) =>{
         return res.status(404).json({error: err})
     }
 }
+
+
+exports.configureTiers = async (req, res, next) =>{
+    let {budgetChange, tiers} = req.body;
+    let method = null;
+    if(Math.sign(budgetChange) === -1){
+        method = findSmallest;
+    }else if (Math.sign(budgetChange) === 1){
+        method = findBiggest;
+    }
+  
+    for (i = 0; i < Math.abs(budgetChange); i++) {
+        tiers = method(tiers)
+	}
+    tiers.motherboard = tiers.cpuCooler = tiers.cpu;
+    tiers.powerSupply = tiers.case = tiers.gpu;
+    const  components={};
+
+    //get all the associated components to the tiers
+    const component = Object.keys(tiers).map(async type => {
+        const comp = await Build.findOne({component: type}, `tiers.tier${tiers[type]}`).populate(`tiers.tier${tiers[type]}`);
+        components[type] = comp.tiers[`tier${tiers[type]}`];
+        return components[type];
+    })
+        
+    Promise.all(component).then(() => {
+        return res.status(200).json(components)
+    })
+}
+
+
+function findSmallest(obj) {
+  const attribute = Object.keys(obj).reduce((smallestNumber, currentNumber) =>
+    obj[smallestNumber] > obj[currentNumber] ? currentNumber : smallestNumber
+  );
+ 	obj[attribute]++
+  return obj
+}
+
+function findBiggest(obj) {
+	const attribute = Object.keys(obj).reduce((biggestNumber, currentNumber) =>
+    obj[biggestNumber] < obj[currentNumber] ? currentNumber : biggestNumber
+  );
+	obj[attribute]--
+ 	return obj
+}
