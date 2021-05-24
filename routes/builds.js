@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getBuilds, createBuild, getTier, getTiers } = require('../controllers/builds');
+const { getBuilds, createBuild, getTier, getTiers, configureTiers } = require('../controllers/builds');
 
 router
     .route('/')
@@ -14,6 +14,10 @@ router
     .route('/tiers')
     .post(getTiers);
 
+router
+    .route('/change')
+    .post(configureTiers);
+    
 router
     .route('/tier/:type/:id')
     .get(getTier)   
