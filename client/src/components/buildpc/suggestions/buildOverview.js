@@ -11,7 +11,7 @@ export const BuildOverview = (props) => {
     return (
         <div>
             <h1>Build Overview</h1>
-            <h1>£{Math.round(total * 100) / 100}</h1>
+            <h2>Overall Price: £{Math.round(total * 100) / 100}</h2>
 
                 <table>
                 <tr>
@@ -26,7 +26,7 @@ export const BuildOverview = (props) => {
                         <td><img src={`/images/components/${c.type}/${c.img}`} /></td>
                         <td>{c.name}</td>
                         <td>{c.type}</td>
-                        <td>{c.price}</td>
+                        <td>£{c.price}</td>
                     </tr>
                 )): <h3>No Components Selected</h3>}
                 </table>
