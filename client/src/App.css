@@ -426,7 +426,7 @@ td {
     background-color: white;
 }
 td img {
-    width:10rem;
+    width:5rem;
 }
 
 @media only screen and (min-width: 1800px) {
@@ -449,8 +449,12 @@ td img {
     }
     hr.grey, hr {
     margin-bottom:2rem;
-}   
-.overlay {
+    }   
+    .overlay {
     padding: 3rem;
-}
+    }
+    td img {
+    width:8rem;
+    }
+
 }
