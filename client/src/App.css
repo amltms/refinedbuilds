@@ -371,6 +371,10 @@ margin-left: 2rem;
     margin:0 auto;
 }
 
+.suggestion-img {
+    width:10rem;
+}
+
 .recommendation-text {
     padding: 1rem;
     top: 0;
