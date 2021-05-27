@@ -45,14 +45,16 @@ h1{
 h2{
     font-family: Helvetica, Arial, sans-serif;
     margin-bottom: 1rem;
-    font-size: 3rem;
+    font-size: 2rem;
 
 }
 
 h3 {
-    font-size: 2rem;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1rem;
     margin-bottom: 1rem;
 }
+
 p.title {
 
     font-size: 1.5rem;
@@ -360,7 +362,7 @@ margin-left: 2rem;
     flex-basis:100%;
     flex-direction: column;
     background:white;
-    padding:3rem;
+    padding:1rem;
     margin:1em;
     border-radius: 40px;
     transition: all 0.5s;
@@ -423,5 +425,16 @@ margin-left: 2rem;
 @media only screen and (min-width: 1800px) {
     .buildpc {
       padding: 4% 20%;
+    }
+    .suggestion{
+        padding:3rem;
+    }
+    h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    }
+    h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
     }
 }
