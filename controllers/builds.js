@@ -8,6 +8,7 @@ function roundUp(value) {
 exports.getBuilds = async(req, res, next) =>{
     try {
         const builds = await Build.find({component: {$in: ['cpu', 'gpu', 'ram','storage']}}).distinct( "tiers", );
+        
         return res.status(200).json({builds})
     } catch (err) {
         return res.status(404).json({error: err})
