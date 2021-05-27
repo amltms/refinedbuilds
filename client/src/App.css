@@ -39,7 +39,7 @@ a{
 h1{
     font-family: Helvetica, Arial, sans-serif;
     font-weight: bold;
-    font-size: 6rem;
+    font-size: 4rem;
 }
 
 h2{
@@ -157,9 +157,11 @@ nav a {
 }
 
 .home-right h1 {
-    font-size:9em;
+    font-size:7rem;
 }
-
+.home-right p {
+    padding-right: 10rem;
+}
 .btns{
     display:flex;
     flex-wrap: wrap;
@@ -175,6 +177,12 @@ nav a {
     background:#242424;
     color:white;
     cursor: pointer;
+    transition: 0.5s;
+}
+
+.main-btn:hover{
+    color:black;
+    background-color: #07bfa6;
 }
 .container {
     padding: 10%;
