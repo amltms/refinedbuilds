@@ -1,7 +1,7 @@
 export const SuggestionItem = ({attributes, component, onClick, selected, index}) => {
     function classActve(component) {
         if (selected.includes(component)){
-            return 'suggestion active'
+            return 'suggestion selected-s'
         }else{
             return 'suggestion'
         }

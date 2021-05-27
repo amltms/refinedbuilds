@@ -411,7 +411,7 @@ margin-left: 2rem;
   opacity: 1;
 }
 
-.active {
+.selected-s {
     border:4px solid #07bfa6;
 }
 
