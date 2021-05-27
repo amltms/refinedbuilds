@@ -19,6 +19,11 @@ export const Suggestions = (props) => {
             let currentType = components[attributes[count].type];
             if ((cpuType) &&(attributes[count].type === 'motherboard')){
                 currentType = currentType.filter(c => c.socket === cpuType.socket)
+            }else if ((cpuType) &&(attributes[count].type === 'gpu')){
+                if (cpuType.integratedGraphics === false){
+                    currentType = currentType.filter(c => c._id != '60aa88cef4bbec924111bf02')
+                }
+                
             }
 
             return currentType.slice(0, 3).map((c, index) => (
