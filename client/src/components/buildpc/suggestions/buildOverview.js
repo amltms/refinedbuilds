@@ -12,16 +12,24 @@ export const BuildOverview = (props) => {
         <div>
             <h1>Build Overview</h1>
             <h1>£{Math.round(total * 100) / 100}</h1>
-            <div className='components'>
+
+                <table>
+                <tr>
+                    <th>Img</th>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Price</th>
+                </tr>
                 {components.length > 0 ? components.map(c => (
-                    <div className='component'>
-                        <h2>{c.type}</h2>
-                        <hr className="grey" />
-                        <img src={`/images/components/${c.type}/${c.img}`} />
-                        <h3>{c.name}</h3>
-                    </div>
+                    <tr>
+    
+                        <td><img src={`/images/components/${c.type}/${c.img}`} /></td>
+                        <td>{c.name}</td>
+                        <td>{c.type}</td>
+                        <td>{c.price}</td>
+                    </tr>
                 )): <h3>No Components Selected</h3>}
-            </div>
+                </table>
         </div>
     )
 }

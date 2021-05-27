@@ -422,7 +422,10 @@ margin-left: 2rem;
     padding: 2rem;
 }
 
-.component img {
+td {
+    background-color: white;
+}
+td img {
     width:10rem;
 }
 
