@@ -7,7 +7,7 @@ function roundUp(value) {
 
 exports.getBuilds = async(req, res, next) =>{
     try {
-        const builds = await Build.find();
+        const builds = await Build.find({component: {$in: ['cpu', 'gpu', 'ram','storage']}}).distinct( "tiers", );
         return res.status(200).json({builds})
     } catch (err) {
         return res.status(404).json({error: err})
@@ -27,6 +27,8 @@ exports.createBuild = async(req, res, next) =>{
 }
 
 exports.getTier = async(req, res, next) =>{
+    
+        console.log(allTiers);
     try {
         const builds = await Build.find({component: req.params.type}, `tiers.tier`+req.params.id).populate('tiers.tier'+req.params.id);
         return res.status(200).json({builds})
@@ -43,6 +45,7 @@ exports.getTiers = async (req, res, next) =>{
         let budget = 0; 
         const  components={};
 
+        
         //get all the associated components to the tiers
         const component = Object.keys(tiers).map(async type => {
             const comp = await Build.findOne({component: type}, `tiers.tier${tiers[type]}`).populate(`tiers.tier${tiers[type]}`);
@@ -67,9 +70,9 @@ exports.configureTiers = async (req, res, next) =>{
     let {budgetChange, tiers} = req.body;
     let method = null;
     if(Math.sign(budgetChange) === -1){
-        method = findSmallest;
+        method = increaseTiers;
     }else if (Math.sign(budgetChange) === 1){
-        method = findBiggest;
+        method = decreaseTiers;
     }
   
     for (i = 0; i < Math.abs(budgetChange); i++) {
@@ -78,7 +81,7 @@ exports.configureTiers = async (req, res, next) =>{
     tiers.motherboard = tiers.cpuCooler = tiers.cpu;
     tiers.powerSupply = tiers.case = tiers.gpu;
     const  components={};
-
+    console.log(tiers);
     //get all the associated components to the tiers
     const component = Object.keys(tiers).map(async type => {
         const comp = await Build.findOne({component: type}, `tiers.tier${tiers[type]}`).populate(`tiers.tier${tiers[type]}`);
@@ -92,7 +95,7 @@ exports.configureTiers = async (req, res, next) =>{
 }
 
 
-function findSmallest(obj) {
+function increaseTiers(obj) {
   const attribute = Object.keys(obj).reduce((smallestNumber, currentNumber) =>
     obj[smallestNumber] > obj[currentNumber] ? currentNumber : smallestNumber
   );
@@ -100,10 +103,11 @@ function findSmallest(obj) {
   return obj
 }
 
-function findBiggest(obj) {
+function decreaseTiers(obj) {
 	const attribute = Object.keys(obj).reduce((biggestNumber, currentNumber) =>
-    obj[biggestNumber] < obj[currentNumber] ? currentNumber : biggestNumber
-  );
-	obj[attribute]--
+        obj[biggestNumber] < obj[currentNumber] && obj[currentNumber] > 0 ? currentNumber : biggestNumber
+    );
+    //to prevent any tiers from going below 1
+	obj[attribute] > 1 && obj[attribute]--
  	return obj
 }

@@ -49,6 +49,14 @@ h2{
 
 }
 
+h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+p.title {
+
+    font-size: 1.5rem;
+}
 p,li {
     padding:0.2rem;
     font-size: 1.3rem;
@@ -283,28 +291,45 @@ footer {
 
 
 /* BUDGET */
-.budget {
-    padding: 5% 10%;
-}
-
 
 .software-container {
-    display: inline-block;
-    background-color: #333333;
+    display: flex;
+    border-radius: 10px;
+}
+
+p.price{
+    margin-bottom: 4rem;
+}
+
+select {
+    margin: 0 auto;
+    display: block;
     padding: 1rem;
-    border-radius: 1rem;
-
+    font-size: 2rem;
+    outline: none;
+    border:none;
+    width: 100%;
+    border-radius: 20px;
+    margin: 2rem 0 2rem 0;
+    background:#dadada;
 }
+
+option {
+    font-size: 2rem;
+}
+
+.budget-container {
+    display: flex;
+}
+
+.suggested-budget {
+    padding-right: 2rem;
+    border-right: 1px solid #bbbbbb;
+}
+
 .selected-software {
-    padding:1rem;
-    display: inline-block;
-    border-radius: 1rem;
-    background:#626262;
-    margin:0.5rem 0.5rem;
+margin-left: 2rem;
 }
-
-
-
 /*Suggestions css*/
 
 .suggestions-container {
@@ -380,7 +405,7 @@ footer {
 }
 
 @media only screen and (min-width: 1800px) {
-  .buildpc {
+    .buildpc {
       padding: 4% 20%;
-  }
+    }
 }

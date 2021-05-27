@@ -23,8 +23,8 @@ function App() {
                 <Switch>
                     <Route exact path="/" component={Home}/>
                     <Route exact path="/suggestions" component={Suggestions}/>
-                        <Route exact path="/budget" component={Budget}/>
                     <div className="container">
+                        <Route exact path="/budget" component={Budget}/>
                         <Route exact path="/buildpc" component={Software}/>
                         <Route exact path="/overview" component={BuildOverview}/>
                         <Route exact path="/components" component={Components}/>
