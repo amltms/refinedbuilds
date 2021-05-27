@@ -10,7 +10,7 @@ export const SuggestionItem = ({attributes, component, onClick, selected, index}
     return (
         <div  className={classActve(component)+(index === 0 ? ' recommendation':'')} onClick={() =>onClick(component)}>
             {index === 0 && (<p className='recommendation-text'>Recommended</p>)}
-            <img width="200" className='suggestion-img' src={`/images/components/${component.type}/${component.img}`} />
+            <img  className='suggestion-img' src={`/images/components/${component.type}/${component.img}`} />
             <h2>{component.name}</h2>
             <hr className='grey'/>
 
