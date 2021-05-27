@@ -260,14 +260,18 @@ hr {
 .software-item {
     justify-content: center;
     align-items: center;
-    width:12rem;
-    height:12rem;
+    width:10rem;
+    height:10rem;
     padding:2em;
     text-align: center;
     background:#ececec;
     border-radius: 10px;
     margin-right:1%;
     transition: all 0.2s;
+}
+
+.software-item img {
+    width:4rem;
 }
 
 .software-item > p {
