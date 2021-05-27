@@ -44,7 +44,7 @@ h1{
 
 h2{
     font-family: Helvetica, Arial, sans-serif;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     font-size: 2rem;
 
 }
@@ -65,7 +65,7 @@ p,li {
 }
 
 hr {
-    margin-bottom:2rem;
+    margin-bottom:1rem;
     border: 0;
     height: 1px;
     background: #b9b9b9;
@@ -364,9 +364,9 @@ margin-left: 2rem;
     background:white;
     padding:1rem;
     margin:1em;
-    border-radius: 40px;
     transition: all 0.5s;
     justify-content: center;
+    border:4px solid white;
 }
 
 .suggestion-img, p {
@@ -383,7 +383,7 @@ margin-left: 2rem;
     left:50%;
     transform: translate(-50%);
     position: absolute;
-    background-color: salmon;
+    background-color:#07bfa6
 }
 
 .points {
@@ -393,7 +393,7 @@ margin-left: 2rem;
 }
 
 .overlay {
-    padding: 1rem;
+    padding: 1.5rem;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -405,7 +405,6 @@ margin-left: 2rem;
     transition: 0.5s ease;
     background-color: rgba(0, 0, 0, 0.9);
     color:white;
-    border-radius: 40px;
 }
 
 .suggestion:hover .overlay {
@@ -413,6 +412,7 @@ margin-left: 2rem;
 }
 
 .active {
+    border:4px solid #07bfa6;
 }
 
 /* Build Overview */
@@ -440,7 +440,7 @@ margin-left: 2rem;
     h1 {
     font-size: 6rem;
     }
-    hr.grey {
+    hr.grey, hr {
     margin-bottom:2rem;
 }   
 .overlay {
