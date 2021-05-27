@@ -10,15 +10,17 @@ export const Suggestions = (props) => {
     const [attributes, setAttributes] = useState([]);
     const [selected, setSelected] = useState([]);
     const history = useHistory();
-    let test = selected.find(s => s.type === 'cpu');
+    let cpuType = selected.find(s => s.type === 'cpu');
     let comp;
     console.log(components);
 
     function getSuggestionItems() {
         if ((components) && (attributes.length > 0)){
             let currentType = components[attributes[count].type];
-            if ((test) &&(attributes[count].type === 'motherboard')){
-                currentType = currentType.filter(c => c.socket === test.socket)
+            if ((cpuType) &&(attributes[count].type === 'motherboard')){
+                currentType = currentType.filter(c => c.socket === cpuType.socket)
+            }else if ((cpuType) &&(attributes[count].type === 'gpu')){
+                currentType = currentType.filter(c => c.integratedGraphics === cpuType.integratedGraphics)
             }
 
             return currentType.slice(0, 3).map((c, index) => (

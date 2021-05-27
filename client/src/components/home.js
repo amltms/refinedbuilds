@@ -14,9 +14,6 @@ export const Home = () =>{
                     <Link to="/buildpc" className="main-btn">
                         <div><i class="fi-rr-settings-sliders"></i>Build PC</div>
                     </Link>
-                    <Link to="/buildpc" className="main-btn">
-                        <div><i class="fi-rr-upload"></i>Upgrade PC</div>
-                    </Link>
                 </div>
             </div>
         </div>
