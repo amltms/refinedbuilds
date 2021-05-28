@@ -5,7 +5,7 @@ export const Component = ({component, attributes}) => {
         history.push(`/components/${component.Type}/${id}`, {params:component, attributes:attributes});
     }
     return (
-        <tr onClick={() => handleClick(component._id)}>
+        <tr >
             <td><img width="100" src={`/images/components/${component.type}/${component.img}`} /></td>
             <td>{component.name}</td>
             {attributes.map(attribute => (<td>{String(component[attribute.id])} {attribute.unit}</td>))}
