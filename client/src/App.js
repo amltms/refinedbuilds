@@ -1,8 +1,6 @@
 import './App.css';
 import {BrowserRouter as Router, Route, Switch, BrowserRouter } from 'react-router-dom';
 
-
-import { GlobalProvider} from './context/GlobalState';
 import { Nav } from './components/utility/Nav';
 import {Home} from './components/home';
 
@@ -17,7 +15,7 @@ import {BuildOverview} from './components/buildpc/suggestions/buildOverview';
 
 function App() {
     return (
-        <GlobalProvider>
+
             <BrowserRouter>
                 <Nav/> 
                 <Switch>
@@ -33,7 +31,6 @@ function App() {
                     </div>
                 </Switch>
             </BrowserRouter>
-        </GlobalProvider>
   );
 }
 
