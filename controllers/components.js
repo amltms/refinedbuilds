@@ -1,6 +1,9 @@
 const Component = require('../models/Component');
 const ComponentAttributes = require('../models/ComponentAttributes');
 
+
+// @desc    get type of components
+// @route   GET /components/all/:type
 exports.getComponents = async(req, res, next) =>{
     try {
         const components = await Component.find({type: req.params.type});
@@ -10,6 +13,8 @@ exports.getComponents = async(req, res, next) =>{
     }
 }
 
+// @desc    get type of components
+// @route   GET /components/:type/:id
 exports.getComponent = async(req, res, next) =>{
     try {
         const component = await Component.findById(req.params.id);
@@ -19,6 +24,9 @@ exports.getComponent = async(req, res, next) =>{
     }
 }
 
+
+// @desc    get all attributes
+// @route   GET /attributes
 exports.getAttributes = async(req, res, next) =>{
     try {
         const attributes = await ComponentAttributes.find();
@@ -28,6 +36,8 @@ exports.getAttributes = async(req, res, next) =>{
     }
 }
 
+// @desc    get attributes of a single component type
+// @route   GET /components/attributes/:type
 exports.getAttribute = async(req, res, next) =>{
     try {
         const attributes = await ComponentAttributes.find({type: req.params.type});

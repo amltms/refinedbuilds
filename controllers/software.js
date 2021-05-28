@@ -9,6 +9,8 @@ exports.getSoftwares = async(req, res, next) =>{
     }
 }
 
+// @desc    get all usecases for the software
+// @route   GET /software/all/usecases
 exports.getUseCases = async(req, res, next) =>{
     try {
         const useCases = await SoftwareUseCase.find();
@@ -18,6 +20,8 @@ exports.getUseCases = async(req, res, next) =>{
     }
 }
 
+// @desc    get all software
+// @route   GET /software/all/software
 exports.addSoftware = async(req, res, next) =>{
     try {
         const software = req.body;
