@@ -15,7 +15,7 @@ export const BuildOverview = (props) => {
 
                 <table>
                 <tr>
-                    <th>Img</th>
+                    <th>Image</th>
                     <th>Name</th>
                     <th>Type</th>
                     <th>Price</th>

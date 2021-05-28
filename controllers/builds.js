@@ -5,6 +5,7 @@ function roundUp(value) {
     return (~~((value + 99) / 100) * 100);
 }
 
+
 exports.getBuilds = async(req, res, next) =>{
     try {
         const builds = await Build.find({component: {$in: ['cpu', 'gpu', 'ram','storage']}}).distinct( "tiers", );
@@ -16,6 +17,8 @@ exports.getBuilds = async(req, res, next) =>{
 }
 
 
+// @desc    create build
+// @route   POST /buids/
 exports.createBuild = async(req, res, next) =>{
     try {
         const buildAttributes = req.body;
@@ -38,6 +41,8 @@ exports.getTier = async(req, res, next) =>{
     }
 }
 
+// @desc    get component tiers
+// @route   POST /buids/tiers
 exports.getTiers = async (req, res, next) =>{
     try {
         let tiers = req.body;
@@ -66,7 +71,8 @@ exports.getTiers = async (req, res, next) =>{
     }
 }
 
-
+// @desc    Configure builds
+// @route   POST /buids/change
 exports.configureTiers = async (req, res, next) =>{
     let {budgetChange, tiers} = req.body;
     let method = null;

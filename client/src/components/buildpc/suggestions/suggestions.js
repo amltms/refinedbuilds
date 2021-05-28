@@ -80,7 +80,7 @@ export const Suggestions = (props) => {
 
     return (
         <div className='buildpc'>
-            <h1>{attributes.length > 0 ? attributes[count].title : 'Loading...'}</h1>
+            <h1>{attributes.length > 0 ? 'Select '+attributes[count].title : 'Loading...'}</h1>
             <div className="suggestions-container">
             {getSuggestionItems()}
             </div>
