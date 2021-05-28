@@ -21,7 +21,6 @@ export const Software = () => {
             setSelected(selected.filter(x => x !== id));
             setCounter(counter-1);
         }else if (counter == 3){
-            setToast(true);
             setToast({...toast, visible: true, msg: 'You have already selected 3 software.'});
         }else {
             setSelected( arr => [...arr, id]);
