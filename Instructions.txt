@@ -1,0 +1,12 @@
+git repo: https://github.com/amltms/refinedbuilds.git
+
+Required software: Node, git and npm
+
+Terminal commands instructions from current directory:
+
+cd refinedbuilds/
+npm i
+cd client/
+npm i
+cd ..
+npm run dev
