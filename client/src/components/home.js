@@ -4,9 +4,7 @@ import { Link } from "react-router-dom";
 export const Home = () => {
   return (
     <div className="home">
-      <div className="home-left">
-        <MainImg className="homeImg" />
-      </div>
+      <MainImg className="homeImg" />
       <div className="home-right">
         <h1>Refined Builds</h1>
         <p>
