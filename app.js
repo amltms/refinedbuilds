@@ -31,7 +31,7 @@ app.use("/builds", builds);
 app.use("/components", components);
 app.use("/software", softwares);
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8080;
 app.listen(
   PORT,
   console.log(
