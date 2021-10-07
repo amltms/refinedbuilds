@@ -12,6 +12,7 @@ import { Software } from "./components/buildpc/software/software";
 import { Budget } from "./components/buildpc/budget/budget";
 import { Suggestions } from "./components/buildpc/suggestions/suggestions";
 import { BuildOverview } from "./components/buildpc/suggestions/buildOverview";
+import { Help } from "./components/Help";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route exact path="/suggestions" component={Suggestions} />
         <div className="container">
+          <Route exact path="/help" component={Help} />
           <Route exact path="/budget" component={Budget} />
           <Route exact path="/buildpc" component={Software} />
           <Route exact path="/overview" component={BuildOverview} />

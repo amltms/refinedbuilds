@@ -10,7 +10,9 @@ export const Nav = () => {
       <NavLink activeClassName="active" exact to="/components">
         Components
       </NavLink>
+      <NavLink activeClassName="active" exact to="/help">
+        Help
+      </NavLink>
     </nav>
   );
 };
-
